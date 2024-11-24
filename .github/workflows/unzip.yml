@@ -24,7 +24,9 @@ jobs:
 
     - name: Unzip
       shell: bash
-      run: unzip -x zip.zip -d unziped
+      run: |
+        unzip -x zip.zip -d unziped
+        ls -ltrah
 
     - name: Upload
       uses: actions/upload-artifact@v4
