@@ -1,8 +1,6 @@
 name: unzip
 
 on:
-  push:
-  pull_request:
   workflow_dispatch:
     inputs:
       unzip:
@@ -21,7 +19,7 @@ jobs:
     - name: InstallDepends
       shell: bash
       run: |
-        sudo apt-get install tree
+        sudo apt-get install -y tree fontforge python3
 
     - name: DownloadFile
       shell: bash
@@ -34,7 +32,6 @@ jobs:
         tree
         du -ah
         ls -ltrah
-        ls unziped/OTF/SimplifiedChinese/ -ltrah
 
     - name: Upload
       uses: actions/upload-artifact@v4
