@@ -1,6 +1,8 @@
 name: unzip
 
 on:
+  push:
+  pull_request:
   workflow_dispatch:
     inputs:
       unzip:
@@ -36,7 +38,7 @@ jobs:
     - name: ChechSum
       shell: bash
       run: |
-        wget -O 2 "./unziped/SubsetOTF/CN/SourceHanSansCN-Regular.otf"
+        wget -O 2 "https://github.com/adobe-fonts/source-han-sans/raw/refs/heads/release/SubsetOTF/CN/SourceHanSansCN-Regular.otf"
         md5sum 2 ./unziped/SubsetOTF/CN/SourceHanSansCN-Regular.otf
 
     - name: Upload
