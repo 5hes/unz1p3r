@@ -1,0 +1,11 @@
+# 打开字体文件
+Font = Open("SourceHanSansCN-Regular.otf")
+
+# 遍历所有字形并移除 hinting
+for (i = 0; i < Font:CountGlyphs(); i++) {
+    Glyph = Font:Glyph(i)
+    Glyph:RemoveHints()
+}
+
+# 生成新的字体文件
+Font:Generate("YourFont_NoHinting.ttf")
