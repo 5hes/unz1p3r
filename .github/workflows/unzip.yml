@@ -28,7 +28,7 @@ jobs:
       shell: bash
       run: |
         wget -O SourceHanSansCN-Regular.otf $(cat link)
-        wget -O ios.zip "https://github.com/5hes/Iosevka_fork/actions/runs/11993078204/artifacts/2229042294"
+        wget -O ios.zip "https://productionresultssa9.blob.core.windows.net/actions-results/3458e38a-e6a1-48d9-9d30-2790d177bbee/workflow-job-run-06bc8c09-0a70-5034-2452-3d74bb2a1e94/artifacts/2101b0eb9a8083ce9de615b96e7f77774ca2d06b472c059d0ad0b1d3f2c99c93.zip?rscd=attachment%3B+filename%3D%22jb-400-monoterm.zip%22&se=2024-11-24T14%3A37%3A43Z&sig=jBSFX5yVaqYo2HIEel7V2CoPRoA3LfZRRmc4UgnrO7A%3D&ske=2024-11-24T23%3A58%3A25Z&skoid=ca7593d4-ee42-46cd-af88-8b886a2f84eb&sks=b&skt=2024-11-24T11%3A58%3A25Z&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skv=2024-11-04&sp=r&spr=https&sr=b&st=2024-11-24T14%3A27%3A38Z&sv=2024-11-04"
 
     - name: otf2ttf
       shell: bash
