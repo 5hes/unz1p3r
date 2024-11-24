@@ -27,6 +27,7 @@ jobs:
       run: |
         unzip zip.zip -d unziped
         ls -ltrah
+        ls unziped -ltrah
 
     - name: Upload
       uses: actions/upload-artifact@v4
