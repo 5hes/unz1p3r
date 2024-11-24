@@ -18,6 +18,11 @@ jobs:
     - name: CheckOut
       uses: actions/checkout@v4
 
+    - name: InstallDepends
+      shell: bash
+      run: |
+        sudo apt-get install tree dust
+
     - name: DownloadFile
       shell: bash
       run: wget -O zip.zip $(cat link)
@@ -26,8 +31,9 @@ jobs:
       shell: bash
       run: |
         unzip zip.zip -d unziped
+        dust
         ls -ltrah
-        ls unziped -ltrah
+        ls unziped/OTF/SimplifiedChinese/ -ltrah
 
     - name: Upload
       uses: actions/upload-artifact@v4
