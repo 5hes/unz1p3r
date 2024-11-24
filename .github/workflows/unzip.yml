@@ -33,13 +33,14 @@ jobs:
     - name: otf2ttf
       shell: bash
       run: |
+        ls -ltra
         unzip ios.zip && rm ios.zip
-        pyftinfo SourceHanSansCN-Regular.otf
+        python -m fontTools.ttLib.ttInfo SourceHanSansCN-Regular.otf
         fontforge -script remove_hinting.pe
-        ls -ltrah
+        ls -ltra
         fontforge -script 2ttf.pe SourceHanSansCN-Regular.otf SourceHanSansCN-Regular.ttf
         fontforge -script merge_fonts.pe
-        ls -ltrah
+        ls -ltra
 
         
     - name: Upload
