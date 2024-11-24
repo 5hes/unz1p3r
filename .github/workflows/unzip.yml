@@ -31,7 +31,7 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
-        name: file
+        name: MapleMono-NF-CN-Medium
         path: unziped/MapleMono-NF-CN-Medium.ttf
 
 
