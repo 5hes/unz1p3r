@@ -22,30 +22,31 @@ jobs:
       shell: bash
       run: |
         sudo apt-get install -y tree fontforge python3
+        pip install fonttools
 
     - name: DownloadFile
       shell: bash
-      run: wget -O zip.zip $(cat link)
+      run: |
+        wget -O SourceHanSansCN-Regular.otf $(cat link)
+        wget -O ios.zip "https://github.com/5hes/Iosevka_fork/actions/runs/11993078204/artifacts/2229042294"
 
-    - name: Unzip
+    - name: otf2ttf
       shell: bash
       run: |
-        unzip zip.zip -d unziped
-        tree
-        du -ah
+        unzip ios.zip && rm ios.zip
+        pyftinfo SourceHanSansCN-Regular.otf
+        fontforge -script remove_hinting.pe
+        ls -ltrah
+        fontforge -script 2ttf.pe SourceHanSansCN-Regular.otf SourceHanSansCN-Regular.ttf
+        fontforge -script merge_fonts.pe
         ls -ltrah
 
-    - name: ChechSum
-      shell: bash
-      run: |
-        wget -O 2 "https://github.com/adobe-fonts/source-han-sans/raw/refs/heads/release/SubsetOTF/CN/SourceHanSansCN-Regular.otf"
-        md5sum 2 ./unziped/SubsetOTF/CN/SourceHanSansCN-Regular.otf
-
+        
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
-        name: MapleMono-NF-CN-Medium
-        path: unziped/MapleMono-NF-CN-Medium.ttf
+        name: bestfont
+        path: Merge.ttf
 
 
 
