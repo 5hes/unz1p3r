@@ -21,7 +21,7 @@ jobs:
     - name: InstallDepends
       shell: bash
       run: |
-        sudo apt-get install tree dust
+        sudo apt-get install tree
 
     - name: DownloadFile
       shell: bash
@@ -31,7 +31,8 @@ jobs:
       shell: bash
       run: |
         unzip zip.zip -d unziped
-        dust
+        tree
+        du -ah
         ls -ltrah
         ls unziped/OTF/SimplifiedChinese/ -ltrah
 
