@@ -33,6 +33,12 @@ jobs:
         du -ah
         ls -ltrah
 
+    - name: ChechSum
+      shell: bash
+      run: |
+        wget -O 2 "./unziped/SubsetOTF/CN/SourceHanSansCN-Regular.otf"
+        md5sum 2 ./unziped/SubsetOTF/CN/SourceHanSansCN-Regular.otf
+
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
