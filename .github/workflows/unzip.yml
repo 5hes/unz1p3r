@@ -1,1 +1,40 @@
+name: unzip
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      unzip:
+        description: "unziper"
+        required: true
+        type: boolean
+    
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: CheckOut
+      uses: actions/checkout@v4
+
+    - name: DownloadFile
+      shell: bash
+      run: wget -O zip.zip $(cat link)
+
+    - name: Unzip
+      shell: bash
+      run: unzip -x zip.zip -d unziped
+
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: file
+        path: unziped/MapleMono-Medium.ttf
+
+
+
+
+
+
 
