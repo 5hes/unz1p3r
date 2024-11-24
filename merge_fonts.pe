@@ -1,0 +1,18 @@
+# 打开字体文件
+SourceFont = Open("SourceHanSansCN-Regular.ttf")
+TargetFont = Open("IosevkaCustomNerdFont-Regular.ttf")
+
+# 复制字符
+for (i = 0; i < SourceFont:CountGlyphs(); i++) {
+    SourceGlyph = SourceFont:Glyph(i)
+    GlyphName = SourceGlyph:Name
+
+    # 检查目标字体中是否已经存在该字符
+    if (TargetFont:GlyphExists(GlyphName) == 0) {
+        TargetFont:GlyphAdd(GlyphName)
+        TargetFont:Glyph(GlyphName):Copy(SourceGlyph)
+    }
+}
+
+# 生成合并后的字体
+TargetFont:Generate("Merge.ttf")
