@@ -25,7 +25,7 @@ jobs:
     - name: Unzip
       shell: bash
       run: |
-        unzip -x zip.zip -d unziped
+        unzip zip.zip -d unziped
         ls -ltrah
 
     - name: Upload
